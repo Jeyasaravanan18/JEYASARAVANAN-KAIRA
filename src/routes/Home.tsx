@@ -1,6 +1,6 @@
 import { Form, Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { ArrowRight, Building2, Search, ShieldCheck, Sparkles } from 'lucide-react';
+import { ArrowRight, Building2, CalendarDays, Globe2, MapPinned, Search, ShieldCheck, Sparkles, Ticket } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { events } from '../lib/mock/events';
@@ -17,9 +17,9 @@ export default function Home() {
   return (
     <>
       <Helmet><title>{t('brand')} · {t('nav.home')}</title></Helmet>
-      <section className="container-grid luxe-surface mt-8 grid gap-12 overflow-hidden border p-5 md:p-8 lg:grid-cols-12 lg:p-10">
+      <section className="container-grid home-hero mt-8 grid gap-12 overflow-hidden rounded-[40px] border border-gray-200 p-5 shadow-overlay md:p-8 lg:grid-cols-12 lg:p-10">
         <motion.div initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55 }} className="lg:col-span-7">
-          <p className="label premium-copy">{t('brand')}</p>
+          <p className="soft-pill inline-flex px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] premium-copy">{t('brand')}</p>
           <h1 className="display mt-4 text-5xl font-extrabold text-ink md:text-7xl lg:text-8xl">{t('home.title')}</h1>
           <p className="premium-copy mt-8 max-w-2xl text-xl">{t('home.subtitle')}</p>
           <div className="mt-8 flex flex-wrap gap-3">
@@ -27,17 +27,17 @@ export default function Home() {
             <span className="soft-pill inline-flex items-center gap-2 rounded px-3 py-2 text-sm font-semibold"><Sparkles className="h-4 w-4 accent-gold" strokeWidth={1.5} />{t('home.featured')}</span>
           </div>
         </motion.div>
-        <motion.div initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.1 }} className="grid gap-4 lg:col-span-5">
-          <div className="grid grid-cols-5 gap-3">
-            <img className="image-polish col-span-3 aspect-[4/5] h-full w-full object-cover" src={heroImages[0].image} alt={heroImages[0].title} />
+        <motion.div initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.1 }} className="photo-stack grid gap-4 lg:col-span-5">
+          <div className="relative z-10 grid grid-cols-5 gap-3">
+            <img className="magazine-card col-span-3 aspect-[4/5] h-full w-full object-cover" src={heroImages[0].image} alt={heroImages[0].title} />
             <div className="col-span-2 grid gap-3">
-              <img className="image-polish aspect-square w-full object-cover" src={heroImages[1].image} alt={heroImages[1].title} />
-              <img className="image-polish aspect-square w-full object-cover" src={heroImages[2].image} alt={heroImages[2].title} />
+              <img className="magazine-card aspect-square w-full object-cover" src={heroImages[1].image} alt={heroImages[1].title} />
+              <div className="color-tile tile-emerald grid aspect-square place-items-center p-4 text-center"><Globe2 className="mb-2 h-7 w-7" strokeWidth={1.5} /><p className="text-sm font-bold">{t('common.language')}</p></div>
             </div>
           </div>
-          <div className="grid grid-cols-3 gap-3">
-            <img className="image-polish col-span-2 aspect-[16/7] w-full object-cover" src={heroImages[3].image} alt={heroImages[3].title} />
-            <div className="grid place-items-center border border-[color:var(--color-gold)] bg-[color:var(--color-premium-soft)] p-4 text-center">
+          <div className="relative z-10 grid grid-cols-3 gap-3">
+            <img className="magazine-card col-span-2 aspect-[16/7] w-full object-cover" src={heroImages[3].image} alt={heroImages[3].title} />
+            <div className="color-tile tile-gold grid place-items-center p-4 text-center">
               <p className="premium-title text-3xl font-extrabold tabular">32</p>
               <p className="label premium-copy">{t('events.title')}</p>
             </div>
@@ -56,11 +56,17 @@ export default function Home() {
           <Button type="submit"><Search className="h-4 w-4" strokeWidth={1.5} />{t('actions.search')}</Button>
         </Form>
       </section>
-      <section className="container-grid grid gap-4 border-b border-gray-200 py-10 md:grid-cols-4">
-        {[['32', t('events.title')], ['10', t('events.city')], ['7', t('common.language')], ['6', t('common.currency')]].map(([value, label], index) => (
-          <motion.div key={label} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.05 }} className="premium-band border p-5">
-            <p className="premium-title text-4xl font-extrabold tabular">{value}</p>
-            <p className="label premium-copy mt-2">{label}</p>
+      <section className="container-grid grid gap-4 py-10 md:grid-cols-4">
+        {[
+          ['32', t('events.title'), Ticket, 'tile-indigo'],
+          ['10', t('events.city'), MapPinned, 'tile-emerald'],
+          ['7', t('common.language'), Globe2, 'tile-gold'],
+          ['6', t('common.currency'), CalendarDays, 'luxe-card']
+        ].map(([value, label, Icon, tile], index) => (
+          <motion.div key={String(label)} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} whileHover={{ y: -6 }} transition={{ delay: index * 0.06 }} className={`color-tile border p-5 ${tile}`}>
+            {typeof Icon !== 'string' ? <Icon className="mb-6 h-7 w-7" strokeWidth={1.5} /> : null}
+            <p className="text-4xl font-extrabold tabular">{String(value)}</p>
+            <p className="mt-2 text-xs font-bold uppercase tracking-[0.12em] opacity-80">{String(label)}</p>
           </motion.div>
         ))}
       </section>
@@ -74,11 +80,11 @@ export default function Home() {
       <section className="container-grid grid gap-12 border-y border-gray-200 py-24 lg:grid-cols-2">
         <div>
           <h2 className="premium-title mb-8 text-3xl font-semibold">{t('home.categories')}</h2>
-          <ul className="grid gap-3">{categories.map((category, index) => <li key={category}><Link className="premium-band flex justify-between border p-4 transition hover:-translate-y-0.5 hover:border-[color:var(--color-accent)] hover:shadow-overlay" to={`/events?category=${category}`}><span className="font-semibold">{category}</span><span className={index % 3 === 0 ? 'accent-gold' : index % 3 === 1 ? 'accent-plum' : 'accent-sage'}>{events.filter((event) => event.category === category).length}</span></Link></li>)}</ul>
+          <ul className="grid gap-3">{categories.map((category, index) => <li key={category}><Link className={`color-tile flex justify-between border p-4 transition hover:-translate-y-1 hover:shadow-overlay ${index % 3 === 0 ? 'tile-gold' : 'luxe-card'}`} to={`/events?category=${category}`}><span className="font-semibold">{category}</span><span className={index % 3 === 0 ? 'accent-plum' : index % 3 === 1 ? 'accent-sage' : 'accent-gold'}>{events.filter((event) => event.category === category).length}</span></Link></li>)}</ul>
         </div>
         <div>
           <h2 className="premium-title mb-8 text-3xl font-semibold">{t('home.cities')}</h2>
-          <div className="luxe-card border p-2"><table className="w-full text-sm"><tbody>{cities.map((city) => <tr key={city} className="border-b border-gray-200 last:border-b-0"><td className="py-4 ps-4 font-semibold">{city}</td><td className="premium-copy py-4 pe-4 text-end">{events.filter((event) => event.city === city).length}</td></tr>)}</tbody></table></div>
+          <div className="grid gap-3">{cities.slice(0, 6).map((city, index) => <Link key={city} to={`/events?city=${city}`} className="luxe-card grid grid-cols-[96px_1fr_auto] items-center gap-4 border p-3 transition hover:-translate-y-1"><img className="h-20 w-24 rounded-3xl object-cover" src={events[index].image} alt={city} /><span className="font-semibold">{city}</span><span className="soft-pill px-3 py-1 text-sm font-semibold">{events.filter((event) => event.city === city).length}</span></Link>)}</div>
         </div>
       </section>
       <section className="container-grid py-24">

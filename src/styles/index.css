@@ -210,6 +210,59 @@ a { color: inherit; }
     var(--color-premium-soft);
 }
 
+.home-hero {
+  background:
+    radial-gradient(circle at 82% 16%, color-mix(in srgb, var(--color-sage) 28%, transparent), transparent 24%),
+    radial-gradient(circle at 12% 80%, color-mix(in srgb, var(--color-plum) 18%, transparent), transparent 28%),
+    linear-gradient(135deg, #ffffff 0%, color-mix(in srgb, var(--color-premium-soft) 92%, #ffffff) 42%, color-mix(in srgb, var(--color-gold) 14%, #ffffff) 100%);
+}
+
+.dark .home-hero {
+  background:
+    radial-gradient(circle at 82% 16%, color-mix(in srgb, var(--color-sage) 22%, transparent), transparent 24%),
+    radial-gradient(circle at 12% 80%, color-mix(in srgb, var(--color-plum) 20%, transparent), transparent 28%),
+    linear-gradient(135deg, #050505 0%, var(--color-premium-soft) 58%, #071512 100%);
+}
+
+.color-tile {
+  border-radius: 28px;
+  box-shadow: 0 22px 65px rgb(15 23 42 / 0.12);
+}
+
+.tile-indigo {
+  background: linear-gradient(135deg, #172554, #312e81);
+  color: white;
+}
+
+.tile-emerald {
+  background: linear-gradient(135deg, #065f46, #0f766e);
+  color: white;
+}
+
+.tile-gold {
+  background: linear-gradient(135deg, #fff7ed, #f6e7c8);
+  color: #172554;
+}
+
+.photo-stack {
+  position: relative;
+}
+
+.photo-stack::before {
+  content: "";
+  position: absolute;
+  inset: 10% -4% -5% 18%;
+  border-radius: 34px;
+  background: color-mix(in srgb, var(--color-sage) 18%, transparent);
+  transform: rotate(-4deg);
+}
+
+.magazine-card {
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgb(15 23 42 / 0.16);
+}
+
 .floating-panel {
   border-radius: 28px;
   box-shadow: 0 24px 70px rgb(15 23 42 / 0.12);
