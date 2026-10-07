@@ -35,7 +35,18 @@ export default function Events() {
   return (
     <>
       <Helmet><title>{t('events.title')} · {t('brand')}</title></Helmet>
-      <div className="container-grid grid gap-8 py-12 lg:grid-cols-[300px_1fr]">
+      <div className="container-grid py-12">
+        <div className="rich-strip mb-8 grid gap-6 rounded-[32px] border border-gray-200 p-6 md:grid-cols-[1fr_auto] md:items-end">
+          <div>
+            <p className="label premium-copy">{t('brand')}</p>
+            <h1 className="premium-title mt-2 text-5xl font-extrabold">{t('events.title')}</h1>
+            <p className="premium-copy mt-3 max-w-2xl">{t('home.subtitle')}</p>
+          </div>
+          <div className="grid grid-cols-3 gap-3 text-center">
+            {[categories.length, cities.length, allEvents.length].map((value, index) => <div key={index} className="luxe-card border px-4 py-3"><p className="premium-title text-2xl font-extrabold tabular">{value}</p></div>)}
+          </div>
+        </div>
+        <div className="grid gap-8 lg:grid-cols-[300px_1fr]">
         <aside className="luxe-card h-max border p-5 lg:sticky lg:top-28">
           <h1 className="premium-title mb-5 text-2xl font-semibold">{t('events.filters')}</h1>
           <div className="grid gap-4">
@@ -66,6 +77,7 @@ export default function Events() {
           {!loading && !error ? <div className={grid ? 'grid gap-6 md:grid-cols-2 xl:grid-cols-3' : 'grid gap-4'}>{items.slice(0, 12).map((event) => <EventCard key={event.id} event={event} compact={!grid} />)}</div> : null}
           <div className="mt-8 flex justify-center gap-2"><Button variant="secondary">1</Button><Button variant="secondary">2</Button><Button variant="secondary">3</Button></div>
         </section>
+        </div>
       </div>
     </>
   );

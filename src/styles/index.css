@@ -177,6 +177,39 @@ a { color: inherit; }
   border-radius: 999px;
 }
 
+.venue-map {
+  background:
+    radial-gradient(circle at 50% 0%, color-mix(in srgb, var(--color-sage) 16%, transparent), transparent 34%),
+    linear-gradient(180deg, color-mix(in srgb, var(--color-premium-soft) 92%, var(--color-paper)), var(--color-paper));
+}
+
+.seat-available {
+  fill: color-mix(in srgb, var(--color-paper) 88%, var(--color-sage));
+  stroke: var(--color-sage);
+}
+
+.seat-selected {
+  fill: var(--color-accent-strong);
+  stroke: var(--color-accent-strong);
+}
+
+.seat-held {
+  fill: color-mix(in srgb, var(--color-gold) 42%, var(--color-paper));
+  stroke: var(--color-gold);
+}
+
+.seat-sold {
+  fill: var(--color-gray-200);
+  stroke: var(--color-gray-400);
+}
+
+.rich-strip {
+  background:
+    linear-gradient(120deg, color-mix(in srgb, var(--color-premium) 10%, transparent), transparent 38%),
+    linear-gradient(260deg, color-mix(in srgb, var(--color-sage) 12%, transparent), transparent 42%),
+    var(--color-premium-soft);
+}
+
 .floating-panel {
   border-radius: 28px;
   box-shadow: 0 24px 70px rgb(15 23 42 / 0.12);
