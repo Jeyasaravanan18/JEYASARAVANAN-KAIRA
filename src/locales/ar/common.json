@@ -1,0 +1,28 @@
+{
+  "brand": "ASSEMBLY",
+  "nav": { "home": "Home", "events": "Events", "enterprise": "Enterprise", "help": "Help", "bookings": "My bookings", "signin": "Sign in", "signout": "Sign out" },
+  "actions": { "search": "Search", "book": "Book", "details": "Details", "continue": "Continue", "back": "Back", "retry": "Retry", "clear": "Clear", "apply": "Apply", "close": "Close", "send": "Send", "print": "Print", "share": "Share", "download": "Download", "cancel": "Cancel", "transfer": "Transfer", "save": "Save" },
+  "common": { "loading": "Loading", "empty": "No results found", "error": "Something went wrong", "currency": "Currency", "language": "Language", "dark": "Dark mode", "localTime": "Your local time", "automated": "Automated assistant", "required": "Required" },
+  "home": {
+    "title": "International events for teams who need the details right",
+    "subtitle": "Find conferences, private programmes, cultural events, and enterprise group bookings across major cities.",
+    "what": "What", "where": "Where", "when": "When", "featured": "Featured events", "categories": "Browse by category", "cities": "Upcoming by city",
+    "enterpriseTitle": "For corporate and group travel", "enterpriseCopy": "Centralised enquiry, invoice support, accessibility planning, and reserved allocations for distributed teams.",
+    "stats": "32 events · 10 cities · 7 interface languages · 6 currencies", "faq": "Frequently asked questions"
+  },
+  "events": { "title": "Events", "filters": "Filters", "category": "Category", "city": "City", "date": "Date", "price": "Price", "eventLanguage": "Event language", "accessibility": "Accessibility", "format": "Format", "sort": "Sort", "grid": "Grid", "list": "List", "active": "Active filters", "all": "All", "in-person": "In person", "virtual": "Virtual", "hybrid": "Hybrid" },
+  "detail": { "agenda": "Agenda", "tickets": "Tickets", "policies": "Policies", "organizer": "Organizer", "related": "Related events", "venue": "Venue", "summary": "Booking summary", "refunds": "Refunds", "age": "Age guidance", "accessibility": "Accessibility", "map": "Static map placeholder", "availability": "Availability", "fees": "Fees" },
+  "booking": { "title": "Ticket selection", "seatMap": "Seat map", "hold": "Hold expires in", "selected": "Selected", "available": "Available", "held": "Held", "sold": "Sold", "quantity": "Quantity", "limit": "Order limit", "checkout": "Checkout" },
+  "checkout": {
+    "title": "Checkout", "attendee": "Attendee details", "addons": { "title": "Add-ons", "parking": "Parking pass", "merch": "Event publication", "assistance": "Accessibility assistance" },
+    "payment": "Payment", "review": "Review", "name": "Full name", "email": "Email", "phone": "Phone", "card": "Card number", "method": "Payment method", "upi": "UPI", "bank": "Bank transfer", "invoice": "Enterprise invoice",
+    "subtotal": "Subtotal", "fees": "Fees", "tax": "Tax", "discount": "Discount", "total": "Total", "code": "Discount code", "place": "Place booking"
+  },
+  "confirmation": { "title": "Booking confirmed", "reference": "Reference", "calendar": "Add to calendar", "tickets": "Tickets", "qr": "QR code" },
+  "account": { "title": "Account", "signin": "Sign in", "create": "Create account", "forgot": "Forgot password", "work": "Continue with Work Email", "password": "Password", "upcoming": "Upcoming", "past": "Past", "noBookings": "No bookings yet" },
+  "enterprise": { "title": "Corporate and group enquiry", "company": "Company", "headcount": "Headcount", "dates": "Preferred dates", "budget": "Budget range", "requirements": "Requirements", "file": "Attachment", "success": "Your enquiry has been saved." },
+  "help": { "title": "Help centre", "search": "Search help", "contact": "Contact us", "policies": "Policies", "message": "Message", "success": "We received your message." },
+  "static": { "about": "About", "terms": "Terms", "privacy": "Privacy", "cookies": "Cookie preferences", "notFound": "Page not found", "serverError": "Server error", "consent": "Manage analytics, preference, and functional cookies." },
+  "chat": { "assistant": "Assistant", "placeholder": "Ask about events or bookings", "typing": "Assistant is typing", "quick": { "events": "Find events", "prices": "Ticket prices", "refund": "Refund policy", "human": "Talk to a human" }, "fallback": "I can help find events, explain prices, check a booking reference, or describe accessibility options.", "human": "A team member has been notified in this mock handoff.", "refund": "Most tickets are refundable up to 14 days before the event. Group allocations follow the invoice terms.", "accessibility": "Most venues include step-free access, captioning, and quiet-room options. The event detail page lists exact provisions.", "currency": "Use the header selector to change currency or language. Prices update immediately.", "status": "Enter a booking reference and I will look for it in this browser session.", "found": "I found matching events." },
+  "validation": { "email": "Enter a valid email", "card": "Enter a valid card number", "min": "This value is too short" }
+}
