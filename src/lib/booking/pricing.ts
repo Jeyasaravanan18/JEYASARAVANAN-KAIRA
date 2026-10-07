@@ -12,15 +12,12 @@ export interface PriceBreakdown {
 export function calculatePrice(event: EventItem, lines: CartLine[], addOns: AddOn[], discountCode?: string): PriceBreakdown {
   const subtotalUsd = lines.reduce((sum, line) => {
     const tier = event.tiers.find((item) => item.id === line.tierId);
-    const seatTotal = line.seatIds.reduce((seatSum, seatId) => {
-      const seat = event.seats?.find((item) => item.id === seatId);
-      return seatSum + (seat?.priceUsd ?? 0);
-    }, 0);
-    return sum + (tier ? tier.priceUsd * line.quantity : 0) + seatTotal;
+    const ticketCount = line.quantity + line.seatIds.length;
+    return sum + (tier ? tier.priceUsd * ticketCount : 0);
   }, 0);
   const feesUsd = lines.reduce((sum, line) => {
     const tier = event.tiers.find((item) => item.id === line.tierId);
-    return sum + (tier ? tier.feeUsd * line.quantity : 0);
+    return sum + (tier ? tier.feeUsd * (line.quantity + line.seatIds.length) : 0);
   }, 0);
   const addOnsUsd = addOns.reduce((sum, item) => sum + item.priceUsd, 0);
   const discountUsd = discountCode?.toUpperCase() === 'TEAM10' ? (subtotalUsd + addOnsUsd) * 0.1 : 0;
